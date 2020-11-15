@@ -1,3 +1,4 @@
+// 1 
 entra_numero1(N1) :-
     nl,
     write('Digite o primeiro número'), nl,
@@ -15,12 +16,11 @@ entra_numero3(N3) :-
 
 calcula_media(MEDIA, N1, N2, N3) :-
     MEDIA is (N1+N2+N3)/3.
+    
 calcula_maior(M, N1, N2, N3) :-
     N1>=N2 , N1>=N3 ->  M is N1;
     N2>=N3 ->  M is N2;
     M is N3.
-
-
 
 decisao:-
     entra_numero1(N1),
@@ -35,8 +35,8 @@ decisao:-
     write('A média entre os 3 números é igual a '),
     write(MEDIA).
 
-
-ibonacci(0,0).
+// 2
+fibonacci(0,0).
 fibonacci(1,1).
 fibonacci(N, R) :-
     N1 is N-1,
@@ -45,7 +45,7 @@ fibonacci(N, R) :-
     fibonacci(N2, R2),
     R is R1+R2.
 
-
+// 3
 union([], L1, L1).
 
 union(L1, [], L1).
