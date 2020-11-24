@@ -46,24 +46,29 @@ fibonacci(N, R) :-
     R is R1+R2.
 
 // 3
-union([], L1, L1).
+uniao([], L1, L1).
 
-union(L1, [], L1).
+uniao(L1, [], L1).
 
-union([E|T], L2, L1) :- member(E, L2), union(T, L2, L1).
+uniao([E|T], L2, L1) :- 
+	member(E, L2), 
+	uniao(T, L2, L1).
 
-union([E|T], L2, [E|L1]) :- union(T, L2, L1).
+uniao([E|T], L2, [E|L1]) :- 
+	uniao(T, L2, L1).
+
+//predicado member/2
+
 
 // 4
 
-intersecao([], _, []).
-intersecao([X|T], L, I) :-
-    	membro(X, L),
+inter([], _, []).
+inter([X|T], E, I) :-
+    	member(X, E),
     	!,
-    	I = [X|R],
-    	intersecao(T, L, R).
-intersecao([_|T], L, R) :-
-     	intersecao(T, L, R).
- 	membro(X,[X|_]).
-membro(X,[_|C]) :- 
-	membro(X,C).
+    	I = [X|D],
+    	inter(T, E, D).
+inter([_|T], E, D) :-
+	inter(T, E, D).
+
+//predicado member/2
